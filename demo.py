@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import torch
 
-from utils import IMG_SIZE, bilinear_unwarping, load_model
+from uvdoc.utils import IMG_SIZE, bilinear_unwarping, load_model
 
 
 def unwarp_img(ckpt_path, img_path, img_size):
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "--ckpt-path", type=str, default="./model/best_model.pkl", help="Path to the model weights as pkl."
+        "--ckpt-path", type=str, default="./uvdoc/model/best_model.pkl", help="Path to the model weights as pkl."
     )
     parser.add_argument("--img-path", type=str, help="Path to the document image to unwarp.")
 

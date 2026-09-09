@@ -1,0 +1,16 @@
+[project]
+name = "uvdoc"
+version = "0.1.0"
+description = "UVDoc inference (gnoble fork)"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.0", "opencv-python-headless>=4.7", "numpy>=1.23"]
+
+[tool.setuptools]
+packages = ["uvdoc"]
+# ../model/ を指すと wheel には入るが site-packages/model/ というトップレベルに
+# 漏れる（実験で確認）。重みは uvdoc/model/ 配下へ移してパッケージ内に閉じる。
+package-data = { "uvdoc" = ["model/*.pkl"] }
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
